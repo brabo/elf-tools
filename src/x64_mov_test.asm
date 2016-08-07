@@ -1,0 +1,161 @@
+; -----------------------------------------------------------------------------
+; A 64-bit Linux unpacker in assembly. Unpacks and executes what follows. To
+; assemble and run:
+;
+;       nasm -felf64 dec64.asm && gcc -o dec64 dec64.o && ./dec64
+; -----------------------------------------------------------------------------
+BITS 64
+
+global main
+
+section .text
+
+main:
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	mov cl,0xff
+	mov cl,17
+	nop
+	mov cl,0xff
+

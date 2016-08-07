@@ -1,3 +1,2 @@
 *.o
-bin/readelf
-bin/get_sc
+bin/*

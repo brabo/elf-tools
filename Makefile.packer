@@ -1,0 +1,74 @@
+ROOT = .
+SRC_DIR = ./src/
+INC_DIR = ./include/
+BIN_DIR = ./bin/
+
+
+PACK_NAME = packer
+
+TARGET?=x64
+CFLAGS=-I./include --std=gnu99 -Os
+ASMCFLAGS=-Wall -s -nostartfiles -nostdlib -nodefaultlibs
+
+ifeq ($(TARGET), x86)
+	DEC_NAME = x86_dec
+	GOLLEM_NAME = x86_execve
+	ASMFLAGS=-felf32
+	ASMCFLAGS+=-m32
+	CFLAGS+=-m32
+else ifeq ($(TARGET), x64)
+	DEC_NAME = x64_dec
+	GOLLEM_NAME = x64_execve
+	ASMFLAGS=-felf64
+endif
+
+PACK_SRCS = $(PACK_NAME).c
+PACK_SRC = $(addprefix $(SRC_DIR), $(PACK_SRCS))
+PACK_OBJS = $(PACK_SRC:.c=.o)
+PACK = $(addprefix $(BIN_DIR), $(PACK_NAME))
+
+DEC_SRCS = $(DEC_NAME).asm
+DEC_SRC = $(addprefix $(SRC_DIR), $(DEC_SRCS))
+DEC_OBJS = $(DEC_SRC:.asm=.o)
+DEC = $(addprefix $(BIN_DIR), $(DEC_NAME))
+
+GOLLEM_SRCS = $(GOLLEM_NAME).asm
+GOLLEM_SRC = $(addprefix $(SRC_DIR), $(GOLLEM_SRCS))
+GOLLEM_OBJS = $(GOLLEM_SRC:.asm=.o)
+GOLLEM = $(addprefix $(BIN_DIR), $(GOLLEM_NAME))
+
+
+CC=gcc
+
+LDFLAGS=-lelf
+LDLIBS=
+STRIP=strip
+ASM=nasm
+#ASMCFLAGS=-Wall -s -nostartfiles -nostdlib -nodefaultlibs
+#-Wall -s -nostartfiles -nostdlib -nodefaultlibs -O3
+
+
+# Be silent per default, but 'make V=1' will show all compiler calls.
+#ifneq ($(V),1)
+#Q := @
+# Do not print "Entering directory ...".
+#MAKEFLAGS += --no-print-directory
+#endif
+
+
+dec:
+	$(ASM) $(ASMFLAGS) -o $(DEC_OBJS) $(DEC_SRC)
+	$(CC) -o $(DEC) $(DEC_OBJS) -N $(ASMCFLAGS)
+
+gollem:
+	$(ASM) $(ASMFLAGS) -o $(GOLLEM_OBJS) $(GOLLEM_SRC)
+	$(CC) -o $(GOLLEM) $(GOLLEM_OBJS) $(ASMCFLAGS)
+
+
+packer: $(PACK_OBJS)
+	$(CC) -o $(PACK) $(PACK_OBJS) $(CFLAGS) $(LDFLAGS)
+
+all:	gollem dec packer
+
+clean:
+	rm -f src/*.o $(PACK) $(DEC) $(GOLLEM)
