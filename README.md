@@ -5,3 +5,6 @@ readelf - reads and parses ELF files
 
 get_sc	- extracts shellcode from a binaries .text section
 	- is less crap, but still..
+
+packer	- demo ELF packer, copies ELF while encoding .text and prepending shellcode
+	  to decode before execution
